@@ -2,11 +2,29 @@ import streamlit as st
 import pickle
 import requests
 import os
+import gdown
 
 movies = pickle.load(open('movies.pkl','rb'))
 titles = movies['title'].values
 
-similarity = pickle.load(open('similarity.pkl','rb'))
+# similarity = pickle.load(open('similarity.pkl','rb')) -> Can't be uploaded to GitHub due to size more than 100MB
+
+# Google Drive file ID (from the share link)
+file_id = "17ey95GCmLtm3cvcRATnSOaHUUb801kES"  
+url = f"https://drive.google.com/uc?id={file_id}"
+
+# File name to save locally
+file_path = "similarity.pkl"
+
+# Download only if it doesn't already exist
+if not os.path.exists(file_path):
+    print("Downloading similarity.pkl from Google Drive...")
+    gdown.download(url, file_path, quiet=False)
+
+# Load it
+with open(file_path, "rb") as f:
+    similarity = pickle.load(f)
+
 
 my_api_key = os.getenv("TMDB_API_KEY")
 
