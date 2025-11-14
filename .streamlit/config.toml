@@ -1,0 +1,17 @@
+[theme]
+base = "dark"
+
+# Accent color (buttons, sliders, links)
+primaryColor = "#1E90FF"
+
+# Main background (deep navy-gray)
+backgroundColor = "#0E1117"
+
+# Secondary background (lighter gray-blue for contrast)
+secondaryBackgroundColor = "#2A2E37"
+
+# Text color (soft white)
+textColor = "#FAFAFA"
+
+# Clean sans-serif font
+font = "sans serif"
